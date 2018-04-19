@@ -3,6 +3,7 @@
 //
 //	  Copyright (c) 2012 Jorge Garcia Martin
 //	  Last edit: Gerard Llorach 2nd August 2017
+//	  Last edit: George Profenza 20th April 2018
 //
 // 	  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 // 	  documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -159,11 +160,16 @@ namespace UnityOSC
 		/// </summary>
 		public void Close()
 		{
-			if(_receiverThread !=null) _receiverThread.Abort();
-			_receiverThread = null;
-			_udpClient.Close();
-			_udpClient = null;
+			if (_receiverThread != null) {
+				_receiverThread.Abort ();
+				_receiverThread = null;
+			}
+			if (_udpClient != null) {
+				_udpClient.Close ();
+				_udpClient = null;
+			}
 		}
+
 		
 
 		/// <summary>
